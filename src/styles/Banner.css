@@ -1,0 +1,45 @@
+.main-banner {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+
+
+.banner-content {
+    max-width: 50%;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.banner-content h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 12px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.banner-content .buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.banner-content .buttons button {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.banner-content .buttons button:hover {
+    background-color: rgb(107, 107, 107); /* 마우스 오버 시 색상 변경 */
+}
