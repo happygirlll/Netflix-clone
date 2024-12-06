@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../api/axios';
+import '../styles/Row.css';
 
 export default function Row({ title, fetchUrl, isLargeRow, id }) {
 
@@ -30,7 +31,7 @@ export default function Row({ title, fetchUrl, isLargeRow, id }) {
 
             <div className="slider-container">
                 <button className="slider-arrow left-arrow">{"<"}</button>
-                
+
                 <div id={id} className="posters-container">
                     {movies.map((movie) => (
                         <img

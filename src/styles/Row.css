@@ -1,0 +1,71 @@
+.row {
+    margin-bottom: 20px;
+}
+
+.row-title {
+    font-size: 1.5rem;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.posters-container {
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+    scroll-behavior: smooth;
+}
+
+.posters-container::-webkit-scrollbar {
+    display: none; /* 스크롤바 숨기기 */
+}
+
+.poster {
+    max-height: 120px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.large-poster {
+    max-height: 250px;
+}
+
+.poster:hover {
+    transform: scale(1.08);
+}
+
+.slider-arrow {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 50px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.slider-arrow:hover {
+    opacity: 1;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
