@@ -1,6 +1,12 @@
 .main-banner {
     object-fit: contain;
     height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 
