@@ -37,12 +37,12 @@ const Banner = () => {
                 ]?.id;
 
             if (randomMovieId) {
-                const { data: movieDatail } = await axios.get(
+                const { data: movieDetail } = await axios.get(
                             `movie/${randomMovieId}`,
                             {
                                 params: { append_to_response: 'videos' },
                             });
-                        setMovie(movieDatail);
+                        setMovie(movieDetail);
                     }
         } catch (error) {
             console.error("에러 무비 데이터", error);
