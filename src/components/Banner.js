@@ -9,6 +9,9 @@ const Banner = () => {
     const [movie, setMovie] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    //재생 버튼 시 비디오 전환
+    const [isClicked, setIsClicked] = useState(false);
+
     //컴포넌트가 처음 렌더링될 때 의존성 배열 '[]'로 인해 fetchData() 함수가 한번만 호출
     useEffect(() => {
         fetchData();
@@ -45,12 +48,21 @@ const Banner = () => {
                         setMovie(movieDetail);
                     }
         } catch (error) {
-            console.error("에러 무비 데이터", error);
+            console.error("데이터를 불러오지 못합니다.", error);
         }
         finally {
             setLoading(false); // 로딩 종료
         }
     };
+
+    if(!isClicked) {
+        return (
+            <Container>
+                <HomeContainer>
+                    
+                </HomeContainer>
+            </Container>
+        )
 
     return (
         <section className="main-banner"
@@ -67,7 +79,8 @@ const Banner = () => {
                 <div className="banner-content">
                     <h1 className='banner-titile'>{movie?.title || movie?.name || movie?.original_name}</h1>
                     <div className="buttons">
-                        <button className="banner-play-btn">재생</button>
+                        <button className="banner-play-btn"
+                                onClick={() => setIsClicked(true)}>재생</button>
                         <button className="banner-detail-btn">상세 정보</button>
                     </div>
                 </div>
