@@ -1,9 +1,6 @@
 .main-banner {
-    position: relative;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    padding-left: 50px;
+    object-fit: contain;
+    height: 450px;
 }
 
 
