@@ -22,20 +22,28 @@ const Banner = () => {
         try {
             setLoading(true);
             const request = await axios.get(requests.fetchNowPlaying);
-            console.log("현재 재생 되는지", request.data);
-            const randomMovie =
-            request.data.results[
-                //floor() : 정수로 변환
-                Math.floor(Math.random() * request.data.results.length)
-            ]?.id;
+            //console.log("현재 재생 되는지", request.data);
 
-            if (randomMovie?.id) {
-            const { data: movieDatail } = await axios.get(`movie/${randomMovie.id}`,
-                {
-                    params: { append_to_response: 'videos' },
-                });
-            setMovie(movieDatail);
-            }
+            //유효한 영화만 필터링하기
+            const validMovies = request.data.results.filter(
+                movie => movie.backdrop_path
+            );
+
+            //랜덤 영화 선택
+            const randomMovieId =
+                validMovies[
+                    //floor() : 정수로 변환
+                    Math.floor(Math.random() * validMovies.length)
+                ]?.id;
+
+            if (randomMovieId) {
+                const { data: movieDatail } = await axios.get(
+                            `movie/${randomMovieId}`,
+                            {
+                                params: { append_to_response: 'videos' },
+                            });
+                        setMovie(movieDatail);
+                    }
         } catch (error) {
             console.error("에러 무비 데이터", error);
         }
@@ -49,23 +57,23 @@ const Banner = () => {
             style={{
                 backgroundImage: movie?.backdrop_path
                     ? `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`
-                    : `url("/default-banner-image.jpg")`,backgroundSize: 'cover',
+                    : `url("/default-banner-image.jpg")`, backgroundSize: 'cover',
                 backgroundPosition: 'Top center',
             }}
         >
             {loading ? (
                 <div className="loader">로딩 중...</div>
             ) : (
-            <div className="banner-content">
-                <h1 className='banner-titile'>{movie?.title || movie?.name || movie?.original_name}</h1>
-                <div className="buttons">
-                    <button className="banner-play-btn">재생</button>
-                    <button className="banner-detail-btn">상세 정보</button>
+                <div className="banner-content">
+                    <h1 className='banner-titile'>{movie?.title || movie?.name || movie?.original_name}</h1>
+                    <div className="buttons">
+                        <button className="banner-play-btn">재생</button>
+                        <button className="banner-detail-btn">상세 정보</button>
+                    </div>
                 </div>
-            </div>
             )}
         </section>
     );
 };
 
-export default Banner
+export default Banner;
