@@ -1,0 +1,23 @@
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background-color: #0f0e0e;
+    position: sticky;
+    top: 0;
+    z-index: 100; 
+}
+
+.nav-logo{
+    width: 100px;
+    display: block;
+    margin-left: 20px;
+}
+
+.nav-avatar{
+    width: 30px;
+    display: flex;
+    cursor: pointer;
+    margin-right: 20px;
+}
