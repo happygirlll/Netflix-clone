@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from '../api/axios';
 import '../styles/Row.css';
 
 export default function Row({ title, fetchUrl, isLargeRow, id }) {
 
     const [movies, setMovies] = useState([]);
+    const postersContainerRef = useRef(null);
+
     useEffect(() => {
         const fetchMovies = async () => {
             try {
@@ -25,14 +27,29 @@ export default function Row({ title, fetchUrl, isLargeRow, id }) {
             }`;
     };
 
+    const handleLeftClick = () => {
+        const container = postersContainerRef.current;
+        if (container) {
+            container.scrollLeft -= container.offsetWidth; 
+        }
+    };
+
+    const handleRightClick = () => {
+        const container = postersContainerRef.current;
+        if (container) {
+            container.scrollLeft += container.offsetWidth; 
+        }
+    };
+
     return (
         <section className="row">
             <h2 className="row-title">{title}</h2>
 
             <div className="slider-container">
-                <button className="slider-arrow left-arrow">{"<"}</button>
+                <button className="slider-arrow left-arrow"
+                        onClick={handleLeftClick}>{"<"}</button>
 
-                <div id={id} className="posters-container">
+                <div id={id} className="posters-container" ref={postersContainerRef}>
                     {movies.map((movie) => (
                         <img
                             key={movie.id}
@@ -44,7 +61,8 @@ export default function Row({ title, fetchUrl, isLargeRow, id }) {
                     ))}
                 </div>
 
-                <button className="slider-arrow right-arrow">{">"}</button>
+                <button className="slider-arrow right-arrow"
+                        onClick={handleRightClick}>{">"}</button>
             </div>
         </section>
     )

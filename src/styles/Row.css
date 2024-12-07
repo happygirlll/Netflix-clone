@@ -69,3 +69,8 @@
 .right-arrow {
     right: 0;
 }
+
+.posters-container {
+    overflow-x: hidden;
+    scroll-behavior: smooth; 
+}
