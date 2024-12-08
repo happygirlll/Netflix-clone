@@ -14,6 +14,24 @@
     margin-left: 20px;
 }
 
+.nav-menu {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #8e8e8e;
+    cursor: pointer;
+}
+
 .nav-avatar{
     width: 30px;
     display: flex;
