@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from '../api/axios';
 import '../styles/Row.css';
+import MovieModal from './MovieModal';
 
 export default function Row({ title, fetchUrl, isLargeRow, id }) {
 
     const [movies, setMovies] = useState([]);
     const postersContainerRef = useRef(null);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [movieSelected, setMovieSelection] = useState({});
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -30,15 +33,20 @@ export default function Row({ title, fetchUrl, isLargeRow, id }) {
     const handleLeftClick = () => {
         const container = postersContainerRef.current;
         if (container) {
-            container.scrollLeft -= container.offsetWidth; 
+            container.scrollLeft -= container.offsetWidth;
         }
     };
 
     const handleRightClick = () => {
         const container = postersContainerRef.current;
         if (container) {
-            container.scrollLeft += container.offsetWidth; 
+            container.scrollLeft += container.offsetWidth;
         }
+    };
+
+    const handleClick = (movie) => {
+        setModalOpen(true);
+        setMovieSelection(movie);
     };
 
     return (
@@ -47,7 +55,7 @@ export default function Row({ title, fetchUrl, isLargeRow, id }) {
 
             <div className="slider-container">
                 <button className="slider-arrow left-arrow"
-                        onClick={handleLeftClick}>{"<"}</button>
+                    onClick={handleLeftClick}>{"<"}</button>
 
                 <div id={id} className="posters-container" ref={postersContainerRef}>
                     {movies.map((movie) => (
@@ -56,14 +64,24 @@ export default function Row({ title, fetchUrl, isLargeRow, id }) {
                             className={`poster ${isLargeRow ? "large-poster" : ""}`}
                             src={getImageUrl(movie)}
                             alt={movie.name || movie.title || "Movie"}
-                            loading="lazy" 
+                            loading="lazy"
+                            onClick={() => handleClick(movie)}
                         />
                     ))}
                 </div>
 
                 <button className="slider-arrow right-arrow"
-                        onClick={handleRightClick}>{">"}</button>
+                    onClick={handleRightClick}>{">"}</button>
             </div>
+            {
+                modalOpen && (
+                    <MovieModal
+                        {...movieSelected}
+                        setModalOpen={setModalOpen}
+                    />
+                )
+            }
+
         </section>
     )
 }
