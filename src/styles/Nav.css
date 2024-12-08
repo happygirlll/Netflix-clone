@@ -34,6 +34,8 @@
     display: flex;
     gap: 15px;
     align-items: center;
+    margin-left: 40px; 
+    flex: 1; /* 메뉴가 로고와 아바타 사이에 균등한 간격을 차지하도록 설정 */
 }
 
 .nav-menu a {
