@@ -36,6 +36,16 @@ export default function Nav() {
             </div>
 
             <img
+                className='nav-search'
+                src={process.env.PUBLIC_URL + '/search.png'}
+                alt="search-icon"
+            />
+            <img
+                className='nav-alarm'
+                src={process.env.PUBLIC_URL + '/alarm.png'}
+                alt="alarm-icon"
+            />
+            <img
                 className='nav-avatar'
                 src={process.env.PUBLIC_URL + '/Netflix-avatar.png'}
                 alt="netflix-avatar"

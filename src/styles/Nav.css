@@ -50,9 +50,23 @@
     cursor: pointer;
 }
 
+.nav-search{
+    width: 25px;
+    display: block;
+    cursor: pointer;
+    margin-right: 25px;
+}
+
+.nav-alarm{
+    width: 22px;
+    display: block;
+    cursor: pointer;
+    margin-right: 20px;
+}
 .nav-avatar{
     width: 30px;
     display: flex;
     cursor: pointer;
     margin-right: 20px;
+    border-radius: 3px;
 }
