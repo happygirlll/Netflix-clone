@@ -1,11 +1,12 @@
 .row {
     margin-bottom: 20px;
+    margin-left: 30px;
 }
 
 .row-title {
-    font-size: 1.5rem;
-    margin-left: 20px;
+    font-size: 1rem;
     margin-bottom: 10px;
+    text-align: left;
 }
 
 .slider-container {
