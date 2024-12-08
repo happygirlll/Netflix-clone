@@ -22,9 +22,29 @@ export default function Footer() {
                         <FooterLink href="https://help.netflix.com/legal/contactus">문의 하기</FooterLink>
                     </FooterLinkContent>
                 </FooterLinkContainer>
-                <FooterDescContainer>
-                    <FooterDescRights></FooterDescRights>
-                </FooterDescContainer>
+                <FooterBottom>
+                    <FooterBottomText>
+                        넷플릭스서비시스코리아 유한회사 통신판매업신고번호: 제2018-서울종로-0426호 전화번호: 00-308-321-0161 (수신자 부담)
+                    </FooterBottomText>
+                    <FooterBottomText>
+                        대표: 레지널드 숀 톰프슨
+                    </FooterBottomText>
+                    <FooterBottomText>
+                        이메일 주소: korea@netflix.com
+                    </FooterBottomText>
+                    <FooterBottomText>
+                        주소: 대한민국 서울특별시 종로구 우정국로 26, 센트로플러스 A동 20층 우편번호 03161
+                    </FooterBottomText>
+                    <FooterBottomText>
+                        사업자등록번호: 165-87-00119
+                    </FooterBottomText>
+                    <FooterBottomText>
+                        클라우드 호스팅: Amazon Web Services Inc.
+                    </FooterBottomText>
+                    <FooterBottomText>
+                        공정거래위원회 웹사이트
+                    </FooterBottomText>
+                </FooterBottom>
             </FooterContent>
         </FooterContainer>
 
@@ -47,7 +67,9 @@ const FooterContainer = styled.div`
         }
     `;
 
-const FooterContent = styled.div``;
+const FooterContent = styled.div`
+    margin-top: 30px;
+`;
 
 const FooterLinkContainer = styled.div`
         width: 500px;
@@ -66,6 +88,7 @@ const FooterLinkContent = styled.div`
             justify-content: flex-start;
             flex-wrap: wrap; /* 항목을 줄바꿈하여 배치 */
             margin-top: 20px;
+            text-align: left;
 
             & > a {
             flex-basis: calc(50% - 5px); /* 두 열로 배치 */
@@ -95,16 +118,24 @@ const FooterLink = styled.a`
     }
         `;
 
-const FooterDescContainer = styled.div`
-        margin-top: 30px;
-        @media (max-width: 768px) {
-            margin-top: 20px;
-        }
-    `;
+const FooterBottom = styled.div`
+    margin-top: 30px;
+    color: gray;
+    font-size: 11px;
+    line-height: 1.5;
 
-const FooterDescRights = styled.div`
-        color: white;
-        font-size: 14px;
-        margin-bottom: 15px;
-    `;
+    @media (max-width: 768px) {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+`;
 
+const FooterBottomText = styled.div`
+
+    margin-bottom: 5px;
+    text-align: left;
+
+    @media (max-width: 768px) {
+        margin-bottom: 3px;
+    }
+`;
