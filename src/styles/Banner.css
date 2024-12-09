@@ -1,22 +1,25 @@
 .main-banner {
     object-fit: contain;
-    height: 450px;
+    height: 600px;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: left;
+    align-items: center;
     position: relative;
+    text-align: left;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     overflow: hidden;
+    font-size: 35px;
+    margin-bottom: 20px;
 }
 
 
 .banner-content {
     max-width: 50%;
     color: white;
-    background: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
+    margin-left: 20px;
 }
 
 .loader {
@@ -29,12 +32,13 @@
 }
 .banner-title {
     font-size: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .banner-content .buttons {
     display: flex;
     gap: 10px;
+    margin-top: 10px;
 }
 
 .banner-play-btn {
@@ -55,11 +59,18 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    opacity: 90%;
 }
 .banner-play-btn:hover {
-    background-color: rgb(107, 107, 107); 
+    background-color: rgb(94, 93, 93); 
 }
 
 .banner-detail-btn:hover {
     background-color: rgb(46, 46, 46);
+}
+
+.banner-description {
+    font-size: 1rem !important;
+    margin-top: 20px;
+    margin-left: 0px !important;
 }

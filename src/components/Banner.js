@@ -75,6 +75,7 @@ const Banner = () => {
                                 onClick={() => setIsClicked(true)}>재생</button>
                             <button className="banner-detail-btn">상세 정보</button>
                         </div>
+                        <h2 className="banner-description">{movie.overview}</h2>
                     </div>
                 )}
             </section>
