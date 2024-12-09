@@ -29,6 +29,7 @@ export default function Nav() {
 
     const handleSearchSubmit = (e) => {
         e.preventDefault(); // 기본 폼 동작 방지
+        console.log("검색값:", searchInput); // 검색값 확인
         if (searchInput.trim()) {
             navigate(`/search?q=${searchInput}`); // 쿼리 매개변수 전달
         }

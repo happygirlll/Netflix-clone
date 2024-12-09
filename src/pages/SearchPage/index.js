@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from'react-router-dom';
 import axios from '../../api/axios';
+import './SearchPage.css';
 
 export default function SearchPage() {
 
@@ -24,6 +25,7 @@ export default function SearchPage() {
       const request = await axios.get(
         `/search/multi?include_adult=false&query=${searchTerm}`
       );
+      console.log(request.data.results); // API 응답 확인
       setSearchResults(request.data.results);
 
     }
@@ -37,9 +39,10 @@ export default function SearchPage() {
       /* SearchTerm에 해당 영화 데이터가 있을 경우 */
       <section className="search-container">
         {searchResults.map((movie) => {
-          if(movie.backdrop_path != null && movie.media_type === "person") {
-            const movieImageUrl =
-              "https://image.tmdb.org/t/p/w500" + movie.profile_path;
+                const movieImageUrl =
+                    "https://image.tmdb.org/t/p/w500" + 
+                    (movie.backdrop_path || movie.profile_path);
+                
             return (
               <div className="movie" key={movie.id}>
                 <div className="movie-column-poster">
@@ -47,7 +50,7 @@ export default function SearchPage() {
                 </div>
               </div>
             );
-        }
+        
         
       })}
         </section>
