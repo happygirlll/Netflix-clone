@@ -3,6 +3,7 @@ import '../styles/Nav.css'
 
 export default function Nav() {
     const [show, setShow] = useState(false);
+    const [search, setSearch] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -17,6 +18,10 @@ export default function Nav() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const toggleSearch = () => {
+        setSearch(!search);
+    }
 
     return (
         <nav className={`nav ${show && 'nav-black'}`}>
@@ -35,11 +40,18 @@ export default function Nav() {
                 <a href='http://localhost:3000/'>언어별로 찾아보기</a>
             </div>
 
-
+            {search && ( // input 창 표시
+                    <input 
+                        type="text" 
+                        className="search-input" 
+                        placeholder="검색어를 입력하세요..."
+                    />
+                )}
             <img
                 className='nav-search'
                 src={process.env.PUBLIC_URL + '/search.png'}
                 alt="search-icon"
+                onClick={toggleSearch}
             />
             <img
                 className='nav-alarm'
