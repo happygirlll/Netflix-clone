@@ -1,26 +1,33 @@
 .row {
     margin-bottom: 20px;
     margin-left: 30px;
+    position: relative; 
+    overflow: visible;
 }
 
 .row-title {
     font-size: 1rem;
     margin-bottom: 10px;
     text-align: left;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.8); /* 가독성을 위한 배경색 */
+    padding: 5px 10px;
 }
 
 .slider-container {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
     position: relative;
+    overflow: visible;
+    z-index: 1;
 }
 
 .posters-container {
     display: flex;
-    overflow-x: scroll;
     gap: 10px;
     scroll-behavior: smooth;
+    position: relative;
+    overflow: visible; 
+    z-index: 1;
 }
 
 .posters-container::-webkit-scrollbar {
@@ -29,8 +36,10 @@
 
 .poster {
     max-height: 120px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out;
     cursor: pointer;
+    position: relative; /* z-index 적용을 위해 relative 설정 */
+    z-index: 2;
 }
 
 .large-poster {
@@ -38,7 +47,8 @@
 }
 
 .poster:hover {
-    transform: scale(1.08);
+    transform: scale(1.4); 
+    z-index: 10; /* hover 상태에서 z-index 높이기 */
 }
 
 .slider-arrow {
