@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from'react-router-dom';
 import axios from '../../api/axios';
 import './SearchPage.css';
+import { useDebounce } from '../../hooks/useDebounce';
 
 export default function SearchPage() {
 
@@ -13,12 +14,13 @@ export default function SearchPage() {
   // search페이지에서 search term 받아오기
   let query = useQuery();
   const searchTerm = query.get('q');
+  const debouncedSearchTerm = useDebounce(query.get("q"), 500);
 
   useEffect(() => {
-    if (searchTerm) {
-      fetchSearchMovie(searchTerm);
+    if (debouncedSearchTerm) {
+      fetchSearchMovie(debouncedSearchTerm);
     }
-  }, [searchTerm]);
+  }, [debouncedSearchTerm]);
 
   const fetchSearchMovie = async (searchTerm) => {
     try {
@@ -56,7 +58,7 @@ export default function SearchPage() {
         </section>
         /* SearchTerm에 해당 영화 데이터가 없을 경우 */
     ) : <section className='no-results'>
-      <p>Try different keywords!</p>
+      <p>찾고자하는 검색어 "{debouncedSearchTerm}"에 맞는 영화가 없습니다.</p>
     </section>
   }
   return (
