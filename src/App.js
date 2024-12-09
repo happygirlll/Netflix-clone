@@ -4,6 +4,9 @@ import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Row from './components/Row';
 import requests from './api/requests';
+import DetailPage from './pages/DetailPage';
+import MainPage from './pages/MainPage';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   return (
