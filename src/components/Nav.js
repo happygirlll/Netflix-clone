@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Nav.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function Nav() {
     const [show, setShow] = useState(false);
     const [search, setSearch] = useState(false);
+    const [searchInput, setSearchInput] = useState("");
+
+    const navigate = useNavigate(); // 페이지 이동을 위한 hook
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,6 +27,13 @@ export default function Nav() {
         setSearch(!search);
     }
 
+    const handleSearchSubmit = (e) => {
+        e.preventDefault(); // 기본 폼 동작 방지
+        if (searchInput.trim()) {
+            navigate(`/search?q=${searchInput}`); // 쿼리 매개변수 전달
+        }
+    };
+
     return (
         <nav className={`nav ${show && 'nav-black'}`}>
             <img 
@@ -41,11 +52,15 @@ export default function Nav() {
             </div>
 
             {search && ( // input 창 표시
+                    <form onSubmit={handleSearchSubmit}>
                     <input 
                         type="text" 
                         className="search-input" 
                         placeholder="검색어를 입력하세요..."
+                        value={searchInput}
+                        onChange={(e) => setSearchInput(e.target.value)} // 입력값 상태 업데이트
                     />
+                    </form>
                 )}
             <img
                 className='nav-search'

@@ -41,13 +41,14 @@ export default function SearchPage() {
             const movieImageUrl =
               "https://image.tmdb.org/t/p/w500" + movie.profile_path;
             return (
-              <div className="movie">
+              <div className="movie" key={movie.id}>
                 <div className="movie-column-poster">
                   <img src={movieImageUrl} alt="" className="movie_poster"/>
                 </div>
               </div>
             );
         }
+        
       })}
         </section>
         /* SearchTerm에 해당 영화 데이터가 없을 경우 */
@@ -56,6 +57,6 @@ export default function SearchPage() {
     </section>
   }
   return (
-    <div> SearchPage</div>
+    <div>{renderSearchResults()}</div>
   )
 }
