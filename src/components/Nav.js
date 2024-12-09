@@ -35,12 +35,17 @@ export default function Nav() {
         }
     };
 
+    const handleLogoClick = () => {
+        navigate('/'); // 로컬호스트 기본 경로로 이동
+    };
+
     return (
         <nav className={`nav ${show && 'nav-black'}`}>
             <img 
                 className='nav-logo'
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/400px-Netflix_2015_logo.svg.png"
                 alt="netflix-logo"
+                onClick={handleLogoClick}
             />
 
             <div className="nav-menu">

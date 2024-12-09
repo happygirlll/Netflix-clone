@@ -28,6 +28,7 @@
     width: 100px;
     display: block;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .nav-menu {
