@@ -35,6 +35,7 @@ export default function Nav() {
                 <a href='http://localhost:3000/'>언어별로 찾아보기</a>
             </div>
 
+
             <img
                 className='nav-search'
                 src={process.env.PUBLIC_URL + '/search.png'}
