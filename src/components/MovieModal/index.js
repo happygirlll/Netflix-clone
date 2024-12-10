@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import "./MovieModal.css";
 
 function MovieModal({
@@ -11,10 +11,12 @@ function MovieModal({
     vote_average,//영화 평점
     setModalOpen//모달 닫기 상태를 변경하는 함수
 }) {
+    const ref = useRef();
+    
     return (
         <div className="presentation" role="presentation">
             <div className="wrapper-modal">
-                <div className="modal">
+                <div className="modal" ref={ref}>
                     <span
                         onClick={() => setModalOpen(false)}
                         className="modal-close"
