@@ -5,8 +5,10 @@ import axios from '../api/axios';
 import styled from 'styled-components';
 
 const Banner = () => {
-    //useState 사용 : movie 상태 생성, 빈 배열 설정 | setMovie로 movie 상태 업데이트
+    //useState 사용 : movie 상태 생성하고 업데이트
     const [movie, setMovie] = useState([]);
+
+    //API 요청 중인지 상태를 저장. 데이터 로딩이 완료되면 false로 설정.
     const [loading, setLoading] = useState(true);
 
     //재생 버튼 시 비디오 전환
@@ -19,11 +21,13 @@ const Banner = () => {
 
     //fetchData() 함수 호출 : movieId를 받아서 movie detail 정보 받아오기
     const fetchData = async () => {
+
         //상영중인 영화 정보 가져오기
-        /* await axios.get은 비동기 http get 요청 보내고 그 결과 기다리는 역할
-            Axios 라이브러리와 async/await 기능 활용 */
+        
         try {
             setLoading(true);
+
+            /* await axios.get은 비동기 http get 요청 보내고 그 결과 기다리는 역할 */
             const request = await axios.get(requests.fetchNowPlaying);
             //console.log("현재 재생 되는지", request.data);
 
@@ -55,6 +59,7 @@ const Banner = () => {
         }
     };
 
+    //재생버튼 안 눌렀을시
     if (!isClicked) {
         return (
             <section className="main-banner"
@@ -81,10 +86,7 @@ const Banner = () => {
             </section>
         );
     } else {
-        // Iframe?
-        /* 아이프레임은 HTML inline frame 요소이며, inline frame의 약자이다.
-        다른 html 페이지를 현재 페이지에 포함시키는 중첩된 브라우저로
-        아이프레임 요소를 이용하면 어떠한 제한 없이 다른 페이지를 불어와서 삽입 가능 */
+        // Iframe 영상 재생
         return (
             <Container>
                 <HomeContainer>
@@ -120,7 +122,7 @@ const HomeContainer = styled.div`
 const Iframe = styled.iframe`
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 1;
     border: none;
     opacity: 0.65;
 

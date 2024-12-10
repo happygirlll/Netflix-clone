@@ -3,8 +3,13 @@ import '../styles/Nav.css'
 import { useNavigate } from 'react-router-dom';
 
 export default function Nav() {
+    //스크롤에 따라 배경색 변경
     const [show, setShow] = useState(false);
+    
+    // 검색창 input 열림&닫힘
     const [search, setSearch] = useState(false);
+    
+    // 검색창 입력값 
     const [searchInput, setSearchInput] = useState("");
 
     const navigate = useNavigate(); // 페이지 이동을 위한 hook

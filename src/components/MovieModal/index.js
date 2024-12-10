@@ -2,14 +2,14 @@ import React from 'react';
 import "./MovieModal.css";
 
 function MovieModal({
-    backdrop_path,
-    title,
-    overview,
-    name,
-    release_date,
-    first_air_date,
-    vote_average,
-    setModalOpen
+    backdrop_path,//영화 배경이미지
+    title,//영화 제목
+    overview,//영화 설명
+    name,//프로그램 이름
+    release_date,//영화 출시일
+    first_air_date,//tv 프로그램 방영 시작일
+    vote_average,//영화 평점
+    setModalOpen//모달 닫기 상태를 변경하는 함수
 }) {
     return (
         <div className="presentation" role="presentation">
